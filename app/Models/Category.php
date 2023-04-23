@@ -13,4 +13,14 @@ class Category extends Model
     public function parent(){
         return $this->hasMany(Category::class, 'parent_id')->with('parent');
     }
+
+    /**
+     * Get all of the product for the Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function product()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
+    }
 }
