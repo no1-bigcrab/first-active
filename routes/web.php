@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\client\ShopPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
 
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/shop', [ShopPageController::class, 'index']);

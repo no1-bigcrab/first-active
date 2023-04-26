@@ -15,7 +15,7 @@ class HomeController extends Controller
         $trendyProduct = Product::limit(8)->with('images')->get();//trendy
         $newProduct = Product::latest()->limit(8)->get();//new products
         $vendors = Vendor::all();
-        //dd($trendyProduct);
+
         return view('client.home.index',
                         compact(
                             'categories',
