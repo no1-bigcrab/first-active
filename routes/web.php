@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\ShopPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
@@ -21,3 +22,7 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/shop', [ShopPageController::class, 'index']);
+Route::get('/cart', [CartController::class, 'index']);
+Route::get('/search', [HomeController::class, 'search'])->name('search');
+
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');

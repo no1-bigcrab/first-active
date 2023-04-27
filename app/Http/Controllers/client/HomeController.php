@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Vendor;
+use Illuminate\Http\Request;
 
 
 class HomeController extends Controller
@@ -24,5 +25,14 @@ class HomeController extends Controller
                             'vendors'
                             )
                     );
+    }
+
+    public function search(Request $request)
+    { 
+            dd($request);
+
+            $data = Product::where('name', );
+            return response()->json($data);
+        
     }
 }
