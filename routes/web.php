@@ -33,5 +33,5 @@ Route::get('/checkout', [CheckoutController::class, 'index']);
 Route::group(['prefix' => 'cart'], function () {
     Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
     Route::patch('update.cart', [CartController::class, 'updateCart'])->name('update.cart');
-    Route::get('remove.from.cart/{id}', [CartController::class, 'remove'])->name('remove.from.cart');
+    Route::delete('remove.from.cart', [CartController::class, 'remove'])->name('remove.from.cart');
 });

@@ -43,7 +43,6 @@ class CartController extends Controller
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
             session()->flash('success', 'Success update to cart.');
-            session()->save();
 
         }
     }
@@ -56,9 +55,7 @@ class CartController extends Controller
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
-            session()->flash('success', 'Product delete cart successfully!');
-            session()->save();
+            session()->flash('success', 'Product removed successfully');
         }
-        return redirect()->back()->with('success', 'Product delete cart successfully!');
     }
 }

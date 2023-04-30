@@ -24,7 +24,7 @@
                                 </td>
                                 <td class="align-middle">${{$details['quantity']*$details['price']}}</td>
                                 <td class="align-middle">
-                                    <a class="btn btn-sm btn-primary" href="{{'cart/remove.from.cart/'.$details['id']}}">
+                                    <a class="btn btn-sm btn-primary remove-from-cart">
                                         <i class="fa fa-times"></i>
                                     </a>
                                 </td>
@@ -53,5 +53,23 @@
             }
         });
     });
+  $(".remove-from-cart").click(function (e) {
+        e.preventDefault();
   
+        var ele = $(this);
+  
+        if(confirm("Are you sure want to remove?")) {
+            $.ajax({
+                url: '{{ route('remove.from.cart') }}',
+                method: "DELETE",
+                data: {
+                    _token: '{{ csrf_token() }}', 
+                    id: ele.parents("tr").attr("data-id")
+                },
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+        }
+    });
 </script>
