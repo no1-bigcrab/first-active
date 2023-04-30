@@ -24,6 +24,7 @@ class CartController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
+                "id"=>$id,
                 "name" => $product->title,
                 "quantity" => 1,
                 "price" => $product->price,
@@ -41,21 +42,23 @@ class CartController extends Controller
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
+            session()->flash('success', 'Success update to cart.');
             session()->save();
-            session()->flash('success', 'Book added to cart.');
+
         }
     }
   
-    public function deleteProduct(Request $request)
+    public function remove(Request $request)
     {
         if($request->id) {
             $cart = session()->get('cart');
             if(isset($cart[$request->id])) {
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
-                session()->save();
             }
-            session()->flash('success', 'Book successfully deleted.');
+            session()->flash('success', 'Product delete cart successfully!');
+            session()->save();
         }
+        return redirect()->back()->with('success', 'Product delete cart successfully!');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\client\CartController;
+use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\DetailPageController;
 use App\Http\Controllers\client\ShopPageController;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,11 @@ Route::get('/shop', [ShopPageController::class, 'index']);
 Route::get('/cart', [CartController::class, 'index']);
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/products/product_id/{id}', [DetailPageController::class, 'index']);
+Route::get('/checkout', [CheckoutController::class, 'index']);
 
-Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+//shopping cart
+Route::group(['prefix' => 'cart'], function () {
+    Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+    Route::patch('update.cart', [CartController::class, 'updateCart'])->name('update.cart');
+    Route::get('remove.from.cart/{id}', [CartController::class, 'remove'])->name('remove.from.cart');
+});

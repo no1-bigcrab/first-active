@@ -4,7 +4,13 @@
 <body>
     @include('.assets.client.topbar')
     @include('.assets.client.navbar')
-    
+    <div class="container">
+        @if(session('success'))
+        <div class="alert alert-success">
+          {{ session('success') }}
+        </div> 
+        @endif
+    </div>
        <!-- Shop Start -->
     <div class="container-fluid pt-5">
         <div class="row px-xl-5">
