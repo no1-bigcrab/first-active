@@ -8,7 +8,7 @@
 <body>
     @include('.assets.client.topbar')
     @include('.assets.client.navbar')
-    
+    @include('.client.checkout.checkout-detail')
     @include('.assets.client.footer')
 </body>
 
