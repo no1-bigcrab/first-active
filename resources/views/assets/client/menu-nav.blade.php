@@ -8,13 +8,13 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav mr-auto py-0">
             <a href="/" class="nav-item nav-link {{ request()->is('/')?"active":"" }}">Home</a>
-            <a href="/shop" class="nav-item nav-link {{ request()->is('/shop')?"active":"" }}">Shop</a>
-            <a href="/detail" class="nav-item nav-link {{ request()->is('/detail')?"active":"" }}">Shop Detail</a>
+            <a href="/shop" class="nav-item nav-link {{ request()->is('shop')?"active":"" }}">Shop</a>
+            <a href="/detail" class="nav-item nav-link {{ request()->is('detail')?"active":"" }}">Shop Detail</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu rounded-0 m-0">
-                    <a href="/cart" class="dropdown-item">Shopping Cart</a>
-                    <a href="/checkout" class="dropdown-item">Checkout</a>
+                    <a href="cart" class="dropdown-item">Shopping Cart</a>
+                    <a href="checkout" class="dropdown-item">Checkout</a>
                 </div>
             </div>
             <a href="/contact" class="nav-item nav-link {{ request()->is('/contact')?"active":"" }}">Contact</a>

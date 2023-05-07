@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CheckoutOrder extends FormRequest
+class CheckoutOrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CheckoutOrder extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,8 +24,8 @@ class CheckoutOrder extends FormRequest
     public function rules()
     {
         return [
-            'first-name' => 'required|unique:posts|max:255',
-            'last-name' => 'required',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required',
             'email' => 'email:rfc,dns',
             'mobile'=>'required|numeric|min:10',
             'address_1' => 'required',
@@ -33,7 +33,8 @@ class CheckoutOrder extends FormRequest
             'country' => 'required',
             'city' => 'required',
             'state' => 'required',
-            'zip_code' => 'required'
+            'zip_code' => 'required',
+            'status'=>'required'
         ];
     }
 }

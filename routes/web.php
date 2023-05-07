@@ -36,3 +36,4 @@ Route::group(['prefix' => 'cart'], function () {
     Route::delete('remove.from.cart', [CartController::class, 'remove'])->name('remove.from.cart');
 });
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('index');
+Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
