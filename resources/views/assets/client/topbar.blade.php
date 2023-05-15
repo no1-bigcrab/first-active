@@ -37,13 +37,13 @@
             </div>
             @include('.assets.client.search-form')
             <div class="col-lg-3 col-6 text-right">
-                <a href="" class="btn border">
+                <a href="!£" class="btn border">
                     <i class="fas fa-heart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
-                <a href="" class="btn border">
+                <a href="/cart" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
-                    <span class="badge">0</span>
+                    <span class="badge">{{count((array) session('cart'))}}</span>
                 </a>
             </div>
         </div>

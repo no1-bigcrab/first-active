@@ -13,7 +13,7 @@ class CreateCustomerTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('address_1');
@@ -24,6 +24,7 @@ class CreateCustomerTable extends Migration
             $table->string('phone');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -35,6 +36,6 @@ class CreateCustomerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer');
+        Schema::dropIfExists('customers');
     }
 }
